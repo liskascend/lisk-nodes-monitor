@@ -1,0 +1,24 @@
+html, body {
+   height: 100%;
+}
+
+.container {
+   background: #fefefe;
+}
+
+.bd-callout {
+   padding: 1.25rem;
+   margin-top: 1.25rem;
+   margin-bottom: 1.25rem;
+   border: 1px solid #eee;
+   border-left-width: .25rem;
+   border-radius: .25rem;
+
+   &-danger {
+      border-left-color: #a94442;
+   }
+
+   &-success {
+      border-left-color: #3c763d;
+   }
+}
