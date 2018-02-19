@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 
 import { fetch } from '../actions/monitor'
+import ProgressIndicator from './progress-indicator'
 import MonitorUI from './monitor-ui'
 
 class Monitor extends Component {
@@ -20,29 +21,48 @@ class Monitor extends Component {
    }
    
    componentWillUnmount() {
-      clearInterval(this.state.intervalId)
+      if (this.state) {
+         clearInterval(this.state.intervalId)
+      }
    }
    
    tick() {
-      const { fetch } = this.props
-      fetch()
+      const { authenticated, fetch } = this.props
+      if (authenticated) {
+         fetch()
+      }
    }
 
    render() {
-      const { data } = this.props
+      const { data, error } = this.props
+      if (data.length === 0) {
+         return (
+            <div className="text-center py-5">
+               <ProgressIndicator animated={true} />
+            </div>
+         )
+      }
       return (
-         <MonitorUI data={data}/>
+         <MonitorUI 
+            data={data}
+            error={error} />
       )
    }
 }
 Monitor.propTypes = {
-   data: PropTypes.object,
+   authenticated: PropTypes.bool.isRequired,
+   data: PropTypes.array,
+   error: PropTypes.string,
+   //
    fetch: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
+   //console.log(state.monitor)
    return {
-      data: state.monitor
+      authenticated: state.authentication.token !== null,
+      data: state.monitor.data,
+      error: state.monitor.error
    }
 }
 

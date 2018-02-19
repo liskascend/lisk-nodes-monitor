@@ -12,11 +12,12 @@ const NodeItem = ({ status }) => {
          </div>
       )
    }
+   
    return (
       <div className="bd-callout bd-callout-success">
          <h5>Address: {address}</h5>
-         <ul>
-            <li>Syncing: {syncing}</li>
+         <ul className="list-unstyled pl-3">
+            <li>Syncing: {syncing ? 'true' : 'false'}</li>
             <li>Height: {height}</li>
             <li>Broadhash: {broadhash}</li> 
             <li>consensus: {consensus}</li>

@@ -6,7 +6,8 @@ import { tokenKey } from './auth'
 const apiServer = 'http://localhost:' + 3000
 
 export const ActionType = {
-   fetch: 'FETCH_DATA'
+   fetch: 'FETCH_DATA',
+   error: 'FETCH_ERROR'
 }
 
 export const fetch = () => {
@@ -19,11 +20,14 @@ export const fetch = () => {
          .then(response => {
             dispatch({ 
                type: ActionType.fetch,
-               payload: response.data
+               payload: response.data.all
             })
          })
          .catch(() => {
-            throw 'Authentication error.'
+            dispatch({ 
+               type: ActionType.error,
+               payload: 'Fetch error.'
+            })
          })
    }
 }

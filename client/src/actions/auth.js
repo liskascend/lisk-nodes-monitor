@@ -7,6 +7,7 @@ const apiServer = 'http://localhost:' + 3000
 export const ActionType = {
    authenticate: 'AUTHENTICATE',
    deauthenticate: 'DEAUTHENTICATE',
+   error: 'AUTHENTICATION_ERROR'
 }
 
 export const tokenKey = 'tokenKey' // localStorage key
@@ -25,7 +26,10 @@ export const authenticate = password => {
             })
          })
          .catch(() => {
-            throw 'Authentication error.'
+            dispatch({ 
+               type: ActionType.error,
+               payload: 'Authentication error.'
+            })
          })
    }
 }

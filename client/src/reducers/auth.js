@@ -3,17 +3,22 @@
 import { ActionType } from '../actions/auth'
 
 const initialState = {
-   token: null
+   token: null,
+   error: null
 }
 
 export default function(state = initialState, action) {
    switch (action.type) {
    case ActionType.authenticate: {
       const token = action.payload
-      return { token }
+      return { token, error: null }
    }
    case ActionType.deauthenticate:
-      return { token: null }
+      return { token: null, error: null }
+   case ActionType.error: {
+      const error = action.payload
+      return { ...state, error }
+   }
    default:
       return state
    }

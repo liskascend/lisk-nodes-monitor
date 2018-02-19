@@ -7,20 +7,34 @@ import Header from './header'
 import ProgressIndicator from './progress-indicator'
 import NodeItem from './node-item'
 
-const MonitorUI = ({ data }) => {
+const MonitorUI = ({ data, error }) => {
    //console.log(data)
-   if (!data || !data.all) {
-      return <div className="text-center py-5">
-         <ProgressIndicator animated={true} />
-      </div>
+   const renderError = error => {
+      if (error) {
+         return (
+            <div className="alert alert-danger">
+               <strong>Oops!</strong> {error}
+            </div>
+         )
+      }
    }
+   
+   if (data.length === 0) {
+      renderError(error)
+      return (
+         <div className="text-center py-5">
+            <ProgressIndicator animated={true} />
+         </div>
+      )
+   }
+
    return (
       <div>
          <Header />
          <p>Last check: {Date()}</p>
          <div>
             {
-               data.all.map(function(status, idx) {
+               data.map(function(status, idx) {
                   return <NodeItem key={idx} status={status} />
                })
             }
@@ -29,7 +43,8 @@ const MonitorUI = ({ data }) => {
    )
 }
 MonitorUI.propTypes = {
-   data: PropTypes.object,
+   data: PropTypes.array.isRequired,
+   error: PropTypes.string
 }
 
 export default MonitorUI
