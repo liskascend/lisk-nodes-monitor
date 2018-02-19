@@ -1,3 +1,5 @@
+// Created by Sinisa Drpa on 02/18/18.
+
 var jwt = require('jsonwebtoken')
 var config = require('../../config')
 

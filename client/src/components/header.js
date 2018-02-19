@@ -1,3 +1,5 @@
+// Created by Sinisa Drpa on 02/18/18.
+
 import React from 'react'
 
 import { randomString } from './lib'

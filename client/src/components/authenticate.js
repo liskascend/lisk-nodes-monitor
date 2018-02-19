@@ -1,3 +1,5 @@
+// Created by Sinisa Drpa on 02/18/18.
+
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'

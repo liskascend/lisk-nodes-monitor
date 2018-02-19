@@ -1,3 +1,5 @@
+// Created by Sinisa Drpa on 02/18/18.
+
 const bcrypt = require('bcrypt')
 const config = require('./../../config')
 const jwt = require('jsonwebtoken')

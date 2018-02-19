@@ -8,7 +8,7 @@
       "bundle": "webpack-dev-server --open"
    },
    "author": "Siniša Drpa",
-   "license": "Apache-2.0",
+   "license": "MIT",
    "babel": {
       "presets": [
          "env",

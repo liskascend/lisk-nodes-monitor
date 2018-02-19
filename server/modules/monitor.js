@@ -1,3 +1,5 @@
+// Created by Sinisa Drpa on 02/18/18.
+
 const axios = require('axios')
 const lodash = require('lodash')
 
@@ -57,9 +59,9 @@ Monitor.prototype.getSyncStats = () => {
       return []
    }
    const best = pickBest(_cached)
-   //console.log('--- ' + Date() + ' ---')
-   //console.log(_cached)
-   //console.log('----------------------')
+   // console.log('--- ' + Date() + ' ---')
+   // console.log(_cached)
+   // console.log('----------------------')
    return { all: _cached, best }
 }
 

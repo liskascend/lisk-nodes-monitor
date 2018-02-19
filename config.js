@@ -1,3 +1,5 @@
+// Created by Sinisa Drpa on 02/18/18.
+
 const config = {
    // Use `bcrypt-cli "password" 10` to generate password from command line
    // `npm install --global bcrypt-cli` to install if necessary

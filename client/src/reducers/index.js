@@ -1,3 +1,5 @@
+// Created by Sinisa Drpa on 02/18/18.
+
 import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form'
 

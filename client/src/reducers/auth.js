@@ -1,3 +1,5 @@
+// Created by Sinisa Drpa on 02/18/18.
+
 import { ActionType } from '../actions/auth'
 
 const initialState = {
